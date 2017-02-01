@@ -5,3 +5,53 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Item.destroy_all
+Measurement.destroy_all
+Recipe.destroy_all
+Category.destroy_all
+CategoriesRecipe.destroy_all
+
+
+cpp = Recipe.create({
+  name: "Chicken Pot Pie",
+  instructions: "Get all your shit together and put it together in a thing, bake at 350 for 100 days."
+  })
+
+chicken = Item.create({name: "Chicken"})
+p_crust = Item.create({name: "Pie Crust"})
+c_of_c = Item.create({name: "Cream of Chicken"})
+
+mains = Category.create({name: "Mains"})
+apps = Category.create({name: "Appetizers"})
+dess = Category.create({name: "Desserts"})
+cat_chicken = Category.create({name: "Chicken"})
+beef = Category.create({name: "Beef"})
+pork = Category.create({name: "Pork"})
+
+m1 = Measurement.new
+m1.amount = "1 lb"
+m1.item_id = chicken.id
+m1.recipe_id = cpp.id
+m1.save
+
+m2 = Measurement.new
+m2.amount = "1 package"
+m2.item_id = p_crust.id
+m2.recipe_id = cpp.id
+m2.save
+
+m3 = Measurement.new
+m3.amount = "10 oz"
+m3.item_id = c_of_c.id
+m3.recipe_id = cpp.id
+m3.save
+
+join1 = CategoriesRecipe.new
+join1.recipe_id = cpp.id
+join1.category_id = mains.id
+join1.save
+
+join2 = CategoriesRecipe.new
+join2.recipe_id = cpp.id
+join2.category_id = cat_chicken.id
+join2.save
