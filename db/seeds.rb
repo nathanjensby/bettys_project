@@ -29,7 +29,7 @@ dess = Category.create({name: "Desserts"})
 poultry = Category.create({name: "Poultry"})
 beef = Category.create({name: "Beef"})
 pork = Category.create({name: "Pork"})
-vegetarian = Category.create({"Vegetarian"})
+vegetarian = Category.create({name: "Vegetarian"})
 other = Category.create({name: "Other"})
 
 
