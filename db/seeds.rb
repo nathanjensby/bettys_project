@@ -21,12 +21,17 @@ chicken = Item.create({name: "Chicken"})
 p_crust = Item.create({name: "Pie Crust"})
 c_of_c = Item.create({name: "Cream of Chicken"})
 
-mains = Category.create({name: "Mains"})
 apps = Category.create({name: "Appetizers"})
+soup = Category.create({name: "Soups"})
+mains = Category.create({name: "Mains"})
+sides = Category.create({name: "Sides"})
 dess = Category.create({name: "Desserts"})
-cat_chicken = Category.create({name: "Chicken"})
+poultry = Category.create({name: "Poultry"})
 beef = Category.create({name: "Beef"})
 pork = Category.create({name: "Pork"})
+vegetarian = Category.create({"Vegetarian"})
+other = Category.create({name: "Other"})
+
 
 m1 = Measurement.new
 m1.amount = "1 lb"
@@ -53,5 +58,5 @@ join1.save
 
 join2 = CategoriesRecipe.new
 join2.recipe_id = cpp.id
-join2.category_id = cat_chicken.id
+join2.category_id = poultry.id
 join2.save
